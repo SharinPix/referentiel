@@ -15,8 +15,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noUncheckedIndexedAccess": true,
-    "sourceMap": true,
-    "inlineSources": true,
+    "sourceMap": false,
+    "inlineSources": false,
     "baseUrl": ".",
     "esModuleInterop": true
   },

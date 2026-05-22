@@ -26,6 +26,7 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.npm_token }}
+          registry: https://registry.npmjs.org/
       - if: steps.publish.outputs.type != 'none'
         name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4

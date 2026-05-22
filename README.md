@@ -14,12 +14,12 @@ matrix and can easily compute local coordinates.
 
 ## npm
 
-npm install --save referentiel
+npm install --save @sharinpix/referentiel
 
 ## html
 
 ```html
-<script src="https://unpkg.com/referentiel"></script>
+<script src="https://unpkg.com/@sharinpix/referentiel"></script>
 ```
 
 # Usage

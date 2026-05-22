@@ -1,9 +1,10 @@
 {
   "name": "@sharinpix/referentiel",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Convert position relative to a html element.",
   "main": "dist/referentiel.umd.js",
   "types": "dist/referentiel.d.ts",
@@ -17,10 +18,10 @@
   ],
   "scripts": {
     "prepublish": "npm run test",
-    "test": "npm run lint && npm run build && ./node_modules/.bin/karma start --single-run",
+    "test": "npm run lint && npm run build && karma start --single-run",
     "start": "npm run build && ./node_modules/.bin/nf start",
-    "build": "./node_modules/.bin/tsc && ./node_modules/.bin/pug test && ./node_modules/.bin/webpack-cli && ./node_modules/.bin/pug -o dist src",
-    "lint": "./node_modules/.bin/eslint . --cache --fix"
+    "build": "tsc && pug test && webpack-cli && pug -o dist src",
+    "lint": "eslint . --cache --fix"
   },
   "author": "Luc Boissaye",
   "license": "MIT",

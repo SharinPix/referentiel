@@ -1,5 +1,16 @@
-process.env.CHROME_BIN = require('puppeteer').executablePath()
+process.env.CHROME_BIN = require("puppeteer").executablePath();
+
+const chromeHeadlessCi = {
+  base: "ChromeHeadless",
+  flags: [
+    "--no-sandbox",
+    "--disable-setuid-sandbox",
+    "--disable-dev-shm-usage",
+  ],
+};
+
 const customLaunchers = {
+  ChromeHeadlessCI: chromeHeadlessCi,
   // sl_chrome_latest: {
   //   base: 'SauceLabs',
   //   browserName: 'chrome'
@@ -113,11 +124,11 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     // browsers: (process.env.TRAVIS_PULL_REQUEST === null && process.env.TRAVIS_BRANCH === 'master') ? Object.keys(customLaunchers) : ['ChromeHeadless', 'FirefoxHeadless'],
-    browsers: ["ChromeHeadless"],
+    browsers: process.env.CI ? ["ChromeHeadlessCI"] : ["ChromeHeadless"],
     singleRun: process.env.CI != null,
     port: 9876,
     colors: true,
     customLaunchers,
-    concurrency: 2,
+    concurrency: process.env.CI ? 1 : 2,
   });
 };
